@@ -1,0 +1,178 @@
+[
+  {
+    "model": "AUDI",
+    "price": 120,
+    "mileage": 15000,
+    "engine": {
+      "type": "DIESEL",
+      "power": 12000
+    },
+    "carBody": {
+      "color": "BLACK",
+      "type": "HATCHBACK",
+      "components": [
+        "DARKGLASSES",
+        "wifi"
+      ]
+    },
+    "wheel": {
+      "model": "Pan",
+      "size": 12,
+      "type": "SUMMER"
+    }
+  },
+  {
+    "model": "AUDI",
+    "price": 120,
+    "mileage": 12000,
+    "engine": {
+      "type": "DIESEL",
+      "power": 210
+    },
+    "carBody": {
+      "color": "BLACK",
+      "type": "HATCHBACK",
+      "components": [
+        "AIRCONDITIONING",
+        "ABS"
+      ]
+    },
+    "wheel": {
+      "model": "PIRELLI",
+      "size": 12,
+      "type": "SUMMER"
+    }
+  },
+  {
+    "model": "FIAT",
+    "price": 130,
+    "mileage": 80000,
+    "engine": {
+      "type": "LPG",
+      "power": 180
+    },
+    "carBody": {
+      "color": "RED",
+      "type": "SEDAN",
+      "components": [
+        "GPS",
+        "WARM WHEEL"
+      ]
+    },
+    "wheel": {
+      "model": "MICHELIN",
+      "size": 17,
+      "type": "WINTER"
+    }
+  },
+  {
+    "model": "PEUGEOT",
+    "price": 115,
+    "mileage": 2500,
+    "engine": {
+      "type": "DIESEL",
+      "power": 210
+    },
+    "carBody": {
+      "color": "SILVER",
+      "type": "COMBI",
+      "components": [
+        "ABS",
+        "WIFI"
+      ]
+    },
+    "wheel": {
+      "model": "PIRELLI",
+      "size": 18,
+      "type": "SUMMER"
+    }
+  },
+  {
+    "model": "AUDI",
+    "price": 140,
+    "mileage": 205000,
+    "engine": {
+      "type": "GASOLINE",
+      "power": 250
+    },
+    "carBody": {
+      "color": "WHITE",
+      "type": "COMBI",
+      "components": [
+        "WARM SEATS",
+        "DARK GLASSES"
+      ]
+    },
+    "wheel": {
+      "model": "CONTINENTAL",
+      "size": 16,
+      "type": "WINTER"
+    }
+  },
+  {
+    "model": "MERCEDES",
+    "price": 200,
+    "mileage": 25000,
+    "engine": {
+      "type": "LPG",
+      "power": 300
+    },
+    "carBody": {
+      "color": "SILVER",
+      "type": "SEDAN",
+      "components": [
+        "AUTOPILOT",
+        "TV"
+      ]
+    },
+    "wheel": {
+      "model": "MICHELIN",
+      "size": 18,
+      "type": "SUMMER"
+    }
+  },
+  {
+    "model": "PEUGEOT",
+    "price": 70,
+    "mileage": 10,
+    "engine": {
+      "type": "GASOLINE",
+      "power": 150
+    },
+    "carBody": {
+      "color": "RED",
+      "type": "HATCHBACK",
+      "components": [
+        "ABS",
+        "AIRCONDITIONING"
+      ]
+    },
+    "wheel": {
+      "model": "CONTINENTAL",
+      "size": 19,
+      "type": "WINTER"
+    }
+  },
+  {
+    "model": "FIAT",
+    "price": 350,
+    "mileage": 0,
+    "engine": {
+      "type": "LPG",
+      "power": 270
+    },
+    "carBody": {
+      "color": "BLACK",
+      "type": "SEDAN",
+      "components": [
+        "DARKGLASSES",
+        "wifi"
+      ]
+    },
+    "wheel": {
+      "model": "MICHELIN",
+      "size": 18,
+      "type": "SUMMER"
+    }
+  }
+]
