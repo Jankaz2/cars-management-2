@@ -1,6 +1,8 @@
 package kazmierczak.jan;
 
+import java.math.BigDecimal;
 import java.util.Comparator;
+import java.util.function.ToIntFunction;
 
 public interface CarUtils {
     /**
@@ -18,4 +20,18 @@ public interface CarUtils {
      */
     Comparator<Car> compareByWheelSize = Comparator.comparing(car -> car.wheel.size);
 
+    /**
+     * Method which map Car obejct to mileage of Car object
+     */
+    ToIntFunction<Car> toMileage = car -> car.mileage;
+
+    /**
+     * Method which map Car obejct to price of Car object
+     */
+    org.eclipse.collections.api.block.function.Function<Car, BigDecimal> toStatsPrice = car -> car.price;
+
+    /**
+     * Method which map Car obejct to engine power of Car object
+     */
+    org.eclipse.collections.api.block.function.Function<Car, BigDecimal> toStatsEnginePower = car -> car.engine.power;
 }

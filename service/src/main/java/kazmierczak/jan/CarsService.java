@@ -2,10 +2,9 @@ package kazmierczak.jan;
 
 import kazmierczak.jan.converter.CarsListJsonConverter;
 import kazmierczak.jan.exception.CarsServiceException;
-import kazmierczak.jan.types.CarBodyType;
-import kazmierczak.jan.types.EngineType;
-import kazmierczak.jan.types.SortItem;
+import kazmierczak.jan.types.*;
 import kazmierczak.jan.validator.generic.Validator;
+import org.eclipse.collections.impl.collector.Collectors2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -98,5 +97,26 @@ public class CarsService {
                 .filter(car -> car.equalsEngineType(engineType))
                 .sorted()
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * @param statsItem - price or mileage or engine power
+     * @return stats of all cars for statsItem param:
+     * the minimum value, the maximum value, the average value
+     */
+    public CarStatistics getStats(StatsItem statsItem) {
+        if (statsItem == null) {
+            throw new CarsServiceException("StatsItem argument is null");
+        }
+
+        var priceStats = cars.stream().collect(Collectors2.summarizingBigDecimal(CarUtils.toStatsPrice));
+        var mileageStats = cars.stream().collect(Collectors.summarizingInt(CarUtils.toMileage));
+        var enginePowerStats = cars.stream().collect(Collectors2.summarizingBigDecimal(CarUtils.toStatsEnginePower));
+
+        return switch (statsItem) {
+            case PRICE -> CarStatistics.builder().priceStatistics(Statistics.fromBigDecimalSummaryStatistics(priceStats)).build();
+            case ENGINEPOWER -> CarStatistics.builder().enginePowerStatistics(Statistics.fromBigDecimalSummaryStatistics(enginePowerStats)).build();
+            default -> CarStatistics.builder().mileageStatistics(Statistics.fromIntSummaryStatistics(mileageStats)).build();
+        };
     }
 }
