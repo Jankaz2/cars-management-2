@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -118,5 +118,41 @@ public class CarsService {
             case ENGINEPOWER -> CarStatistics.builder().enginePowerStatistics(Statistics.fromBigDecimalSummaryStatistics(enginePowerStats)).build();
             default -> CarStatistics.builder().mileageStatistics(Statistics.fromIntSummaryStatistics(mileageStats)).build();
         };
+    }
+
+    /**
+     * @return comparison where key is car object
+     * and value is cilometers passed by this car
+     */
+    public Map<Car, Integer> cilometersPassedByCar() {
+        return cars
+                .stream()
+                .collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.collectingAndThen(
+                                Collectors.mapping(CarUtils.toMileage::applyAsInt, Collectors.toList()),
+                                mileages -> mileages.stream().findFirst().orElseThrow()
+                        )
+                ));
+    }
+
+    /**
+     * @return comparison where key is type of tyre
+     * and value is list of cars that got this
+     * tyre type
+     */
+    public Map<TyreType, List<Car>> carsGroupedByTyreType() {
+        return cars
+                .stream()
+                .collect(Collectors.groupingBy(
+                        CarUtils.toWheelType
+                ))
+                .entrySet()
+                .stream()
+                .sorted(Comparator.comparing(e -> e.getValue().size()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey, Map.Entry::getValue,
+                        (v1, v2) -> v1, LinkedHashMap::new)
+                );
     }
 }

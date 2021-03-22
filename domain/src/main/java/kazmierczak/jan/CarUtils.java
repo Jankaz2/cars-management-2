@@ -1,7 +1,10 @@
 package kazmierczak.jan;
 
+import kazmierczak.jan.types.TyreType;
+
 import java.math.BigDecimal;
 import java.util.Comparator;
+import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
 public interface CarUtils {
@@ -24,6 +27,11 @@ public interface CarUtils {
      * Method which map Car obejct to mileage of Car object
      */
     ToIntFunction<Car> toMileage = car -> car.mileage;
+
+    /**
+     * Method which map Car object to wheel type of Car object
+     */
+    Function<Car, TyreType> toWheelType = car -> car.wheel.type;
 
     /**
      * Method which map Car obejct to price of Car object
