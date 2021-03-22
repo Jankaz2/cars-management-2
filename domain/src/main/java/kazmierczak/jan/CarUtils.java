@@ -34,6 +34,11 @@ public interface CarUtils {
     Function<Car, TyreType> toWheelType = car -> car.wheel.type;
 
     /**
+     * Method which map Car obejct to model of Car object
+     */
+    Function<Car, String> toModel = car -> car.model;
+
+    /**
      * Method which map Car obejct to price of Car object
      */
     org.eclipse.collections.api.block.function.Function<Car, BigDecimal> toStatsPrice = car -> car.price;

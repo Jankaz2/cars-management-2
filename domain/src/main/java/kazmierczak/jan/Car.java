@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,5 +48,25 @@ public class Car {
      */
     public boolean equalsEngineType(EngineType engineType) {
         return engine.type.equals(engineType);
+    }
+
+    /**
+     *
+     * @param comps - list of components we want to check whether car got them
+     * @return true if checking Car's components are equal to components list from arguments
+     */
+    public boolean equalsComponents(List<String> comps) {
+        return carBody.components.containsAll(comps);
+    }
+
+    @Override
+    public String toString() {
+        return "\nModel: " + model +
+                "\nPrice: " + price +
+                "\nMileage: " + mileage +
+                "\nEngine: " + engine +
+                "\nCarBody: " + carBody +
+                "\nWheel: " + wheel +
+                "\n-------------------------";
     }
 }

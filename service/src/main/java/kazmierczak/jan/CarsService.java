@@ -155,4 +155,20 @@ public class CarsService {
                         (v1, v2) -> v1, LinkedHashMap::new)
                 );
     }
+
+    /**
+     * @param components - list of components we want to find in car
+     * @return list of cars that got all of the components
+     * get as a param
+     */
+    public List<Car> carsThatGotComponents(List<String> components) {
+        if (components == null) {
+            throw new CarsServiceException("Components list is null");
+        }
+        return cars
+                .stream()
+                .filter(car -> car.equalsComponents(components))
+                .sorted(Comparator.comparing(CarUtils.toModel))
+                .collect(Collectors.toList());
+    }
 }
