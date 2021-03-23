@@ -61,7 +61,7 @@ public class CarsService {
      * @return list of cars which body type is equal to bodyType param and price is
      * in range <fromPrice; toPrice>
      */
-    public List<Car> withBodyFromArgumentAndInRange(CarBodyType bodyType, BigDecimal fromPrice, BigDecimal toPrice) {
+    public List<Car> withBodyAndPriceInRange(CarBodyType bodyType, BigDecimal fromPrice, BigDecimal toPrice) {
         if (fromPrice == null) {
             throw new CarsServiceException("FromPrice is null");
         }
