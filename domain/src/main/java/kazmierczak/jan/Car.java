@@ -23,9 +23,8 @@ public class Car {
     Wheel wheel;
 
     /**
-     *
      * @param fromPrice - minimum price in range we are looking for cars
-     * @param toPrice - maximum price in range we are looking for cars
+     * @param toPrice   - maximum price in range we are looking for cars
      * @return true if checking Car's price is in range <fromPrice; toPrice>
      */
     public boolean hasPriceInRange(BigDecimal fromPrice, BigDecimal toPrice) {
@@ -33,7 +32,6 @@ public class Car {
     }
 
     /**
-     *
      * @param type - car's body type
      * @return true if checking Car's body type is equal to body type from arguments
      */
@@ -42,7 +40,6 @@ public class Car {
     }
 
     /**
-     *
      * @param engineType - car's engine type
      * @return true if checking Car's engine type is equal to engine type from arguments
      */
@@ -51,7 +48,6 @@ public class Car {
     }
 
     /**
-     *
      * @param comps - list of components we want to check whether car got them
      * @return true if checking Car's components are equal to components list from arguments
      */
