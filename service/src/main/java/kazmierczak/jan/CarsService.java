@@ -56,7 +56,7 @@ public class CarsService {
 
     /**
      * @param bodyType car's body type
-     * @param fromPrice minimin value of price range
+     * @param fromPrice minimum value of price range
      * @param toPrice maximum value of price range
      * @return list of cars which body type is equal to bodyType param and price is
      * in range <fromPrice; toPrice>
