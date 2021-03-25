@@ -2,10 +2,7 @@ package kazmierczak.jan.car;
 
 import kazmierczak.jan.types.CarBodyType;
 import kazmierczak.jan.types.EngineType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@ToString
 public class Car {
     String model;
     BigDecimal price;
@@ -53,16 +51,5 @@ public class Car {
      */
     public boolean equalsComponents(List<String> comps) {
         return carBody.components.containsAll(comps);
-    }
-
-    @Override
-    public String toString() {
-        return "\nModel: " + model +
-                "\nPrice: " + price +
-                "\nMileage: " + mileage +
-                "\nEngine: " + engine +
-                "\nCarBody: " + carBody +
-                "\nWheel: " + wheel +
-                "\n-------------------------";
     }
 }
