@@ -1,9 +1,9 @@
 package kazmierczak.jan.config.converter;
 
-import kazmierczak.jan.Car;
-import kazmierczak.jan.CarBody;
-import kazmierczak.jan.Engine;
-import kazmierczak.jan.Wheel;
+import kazmierczak.jan.car.Car;
+import kazmierczak.jan.car.CarBody;
+import kazmierczak.jan.car.Engine;
+import kazmierczak.jan.car.Wheel;
 import kazmierczak.jan.extension.CarsListJsonConverterExtension;
 import kazmierczak.jan.types.CarBodyColor;
 import kazmierczak.jan.types.CarBodyType;

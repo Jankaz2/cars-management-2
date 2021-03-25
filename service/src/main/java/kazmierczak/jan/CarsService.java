@@ -1,9 +1,12 @@
 package kazmierczak.jan;
 
+import kazmierczak.jan.car.Car;
+import kazmierczak.jan.car.CarUtils;
+import kazmierczak.jan.car.CarValidator;
 import kazmierczak.jan.config.converter.CarsListJsonConverter;
 import kazmierczak.jan.exception.CarsServiceException;
 import kazmierczak.jan.types.*;
-import kazmierczak.jan.config.validator.generic.Validator;
+import kazmierczak.jan.car.validator.generic.Validator;
 import org.eclipse.collections.impl.collector.Collectors2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

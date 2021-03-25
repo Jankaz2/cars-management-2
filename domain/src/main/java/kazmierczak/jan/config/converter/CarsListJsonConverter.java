@@ -1,6 +1,6 @@
 package kazmierczak.jan.config.converter;
 
-import kazmierczak.jan.Car;
+import kazmierczak.jan.car.Car;
 
 import java.util.List;
 

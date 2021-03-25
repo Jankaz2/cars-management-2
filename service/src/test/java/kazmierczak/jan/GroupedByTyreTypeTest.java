@@ -1,5 +1,6 @@
 package kazmierczak.jan;
 
+import kazmierczak.jan.car.CarUtils;
 import kazmierczak.jan.config.AppSpringConfig;
 import kazmierczak.jan.types.TyreType;
 import org.junit.jupiter.api.BeforeEach;
