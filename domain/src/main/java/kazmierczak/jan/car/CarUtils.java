@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
 public interface CarUtils {
+    Comparator<Car> compareByModel = Comparator.comparing(car -> car.model);
     /**
      * Method which compare cars by components list size
      */

@@ -105,7 +105,7 @@ public class CarsService {
         return cars
                 .stream()
                 .filter(car -> car.equalsEngineType(engineType))
-                .sorted()
+                .sorted(CarUtils.compareByModel)
                 .collect(Collectors.toList());
     }
 
