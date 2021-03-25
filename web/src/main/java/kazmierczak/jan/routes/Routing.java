@@ -60,7 +60,7 @@ public class Routing {
             });
 
             path("/grouped", () -> {
-                get("tyre-type",
+                get("/tyre-type",
                         (request, response) -> {
                             response.header("Content-Type", "application/json;charset=utf-8");
                             return carsService.carsGroupedByTyreType();
