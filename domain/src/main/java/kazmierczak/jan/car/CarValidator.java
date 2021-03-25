@@ -1,6 +1,6 @@
-package kazmierczak.jan;
+package kazmierczak.jan.car;
 
-import kazmierczak.jan.config.validator.generic.Validator;
+import kazmierczak.jan.car.validator.generic.Validator;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -17,6 +17,7 @@ public class CarValidator implements Validator<Car> {
         var errors = new HashMap<String, String>();
         if (car == null) {
             errors.put("car", "object is null");
+            return errors;
         }
 
         var model = car.model;
@@ -26,12 +27,12 @@ public class CarValidator implements Validator<Car> {
 
         var mileage = car.mileage;
         if(hasIncorrectMileage(mileage)){
-            errors.put("mileage", "mileage cannot be less than 0");
+            errors.put("mileage", "value cannot be less than 0");
         }
 
         var price = car.price;
         if(hasIncorrectPrice(price)){
-            errors.put("price", "price cannot be less than 0");
+            errors.put("price", "value cannot be less than 0");
         }
 
         var body = car.carBody;

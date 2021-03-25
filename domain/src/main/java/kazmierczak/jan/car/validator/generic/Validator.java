@@ -1,4 +1,4 @@
-package kazmierczak.jan.config.validator.generic;
+package kazmierczak.jan.car.validator.generic;
 
 import kazmierczak.jan.exception.ValidatorException;
 
@@ -14,9 +14,9 @@ public interface Validator<T> {
             var message = errors
                     .entrySet()
                     .stream()
-                    .map(e -> e.getKey() + " " + e.getValue())
+                    .map(e -> e.getKey() + ": " + e.getValue())
                     .collect(Collectors.joining(", "));
-            throw new ValidatorException("Validation errors: " + message);
+            throw new ValidatorException("[VALIDATION ERRORS] -> " + message);
         }
         return item;
     }
