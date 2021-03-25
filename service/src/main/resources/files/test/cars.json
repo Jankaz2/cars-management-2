@@ -16,7 +16,7 @@
       ]
     },
     "wheel": {
-      "model": "Pan",
+      "model": "MICHELIN",
       "size": 12,
       "type": "SUMMER"
     }
@@ -48,7 +48,7 @@
     "price": 115,
     "mileage": 2500,
     "engine": {
-      "type": "DIESEL",
+      "type": "GASOLINE",
       "power": 210
     },
     "carBody": {

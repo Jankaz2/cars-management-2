@@ -43,8 +43,8 @@ public class SortByEngineTypeTest {
     public void test2(EngineType item) {
         var expectedResult = Map.ofEntries(
                 Map.entry(EngineType.LPG, List.of("FIAT")),
-                Map.entry(EngineType.DIESEL, List.of("PEUGEOT", "AUDI")),
-                Map.entry(EngineType.GASOLINE, List.of())
+                Map.entry(EngineType.DIESEL, List.of("AUDI")),
+                Map.entry(EngineType.GASOLINE, List.of("PEUGEOT"))
         );
 
         var result = carsService.sortByEngineType(item)
