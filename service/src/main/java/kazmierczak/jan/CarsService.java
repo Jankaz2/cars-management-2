@@ -34,7 +34,14 @@ public class CarsService {
     }
 
     /**
-     * @param item criteria of sorting
+     * @return list of all available cars
+     */
+    public List<Car> getAllCars() {
+        return cars;
+    }
+
+    /**
+     * @param item       criteria of sorting
      * @param descending sorting order
      * @return list of cars sorted by item
      * if descending is true then returned list is sorted descending,
@@ -58,9 +65,9 @@ public class CarsService {
     }
 
     /**
-     * @param bodyType car's body type
+     * @param bodyType  car's body type
      * @param fromPrice minimum value of price range
-     * @param toPrice maximum value of price range
+     * @param toPrice   maximum value of price range
      * @return list of cars which body type is equal to bodyType param and price is
      * in range <fromPrice; toPrice>
      */
