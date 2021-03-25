@@ -2,10 +2,7 @@ package kazmierczak.jan.car;
 
 import kazmierczak.jan.types.CarBodyColor;
 import kazmierczak.jan.types.CarBodyType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Builder
+@ToString
 public class CarBody {
     CarBodyColor color;
     CarBodyType type;
