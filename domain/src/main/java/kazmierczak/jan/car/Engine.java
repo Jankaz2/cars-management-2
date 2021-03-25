@@ -1,10 +1,7 @@
 package kazmierczak.jan.car;
 
 import kazmierczak.jan.types.EngineType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -12,6 +9,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Builder
+@ToString
 public class Engine {
     EngineType type;
     BigDecimal power;
