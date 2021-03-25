@@ -82,18 +82,18 @@ public class Routing {
             });
 
             path("/statistics", () -> {
+                get("/cilometers-passed",
+                        (request, response) -> {
+                            response.header("Content-Type", "application/json;charset=utf-8");
+                            return carsService.cilometersPassedByCar();
+                        }, new JsonTransformer()
+                );
+
                 get("/:statsItem",
                         (request, response) -> {
                             response.header("Content-Type", "application/json;charset=utf-8");
                             var statsItem = request.params(":statsItem");
                             return carsService.getStats(StatsItem.valueOf(statsItem));
-                        }, new JsonTransformer()
-                );
-
-                get("/cilometers-passed",
-                        (request, response) -> {
-                            response.header("Content-Type", "application/json;charset=utf-8");
-                            return carsService.cilometersPassedByCar();
                         }, new JsonTransformer()
                 );
             });
