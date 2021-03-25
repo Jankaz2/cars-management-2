@@ -1,4 +1,4 @@
-package kazmierczak.jan.converter;
+package kazmierczak.jan.config.converter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,7 +27,7 @@ public abstract class JsonConverter<T> {
         try (FileWriter fileWriter = new FileWriter(jsonFilename)) {
             fileWriter.write(gson.toJson(item));
         } catch (Exception e) {
-            throw new ValidatorException(e.getMessage());
+            throw new JsonConverterException(e.getMessage());
         }
     }
 

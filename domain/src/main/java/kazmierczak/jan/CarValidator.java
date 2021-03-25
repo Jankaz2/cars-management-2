@@ -1,6 +1,6 @@
 package kazmierczak.jan;
 
-import kazmierczak.jan.validator.generic.Validator;
+import kazmierczak.jan.config.validator.generic.Validator;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

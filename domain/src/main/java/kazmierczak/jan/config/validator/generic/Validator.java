@@ -1,4 +1,4 @@
-package kazmierczak.jan.validator.generic;
+package kazmierczak.jan.config.validator.generic;
 
 import kazmierczak.jan.exception.ValidatorException;
 

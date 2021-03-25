@@ -1,4 +1,4 @@
-package kazmierczak.jan.converter;
+package kazmierczak.jan.config.converter;
 
 import kazmierczak.jan.Car;
 
