@@ -15,6 +15,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static spark.Spark.get;
 import static spark.Spark.path;
@@ -102,8 +105,9 @@ public class Routing {
                get("/got-components/:components",
                        (request, response) -> {
                            response.header("Content-Type", "application/json;charset=utf-8");
-                           var components = request.queryParams();
-                           return carsService.carsThatGotComponents(new ArrayList<>(components));
+                           var components = request.params(":components");
+                           var listOfComponens= Arrays.stream(components.split("[,&]")).collect(Collectors.toList());
+                           return carsService.carsThatGotComponents(listOfComponens);
                        }, new JsonTransformer());
             });
         });
