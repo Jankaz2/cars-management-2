@@ -12,7 +12,7 @@
       "type": "HATCHBACK",
       "components": [
         "DARKGLASSES",
-        "wifi"
+        "WIFI"
       ]
     },
     "wheel": {
