@@ -27,7 +27,7 @@ public class CarsService {
     public void init() {
         cars = new CarsListJsonConverter(filename)
                 .fromJson()
-                .orElseThrow(() -> new CarsServiceException(""))
+                .orElseThrow(() -> new CarsServiceException("Cannot read data from file " + filename))
                 .stream()
                 .peek(car -> Validator.validate(new CarValidator(), car))
                 .collect(Collectors.toList());
