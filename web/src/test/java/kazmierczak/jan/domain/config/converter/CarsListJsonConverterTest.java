@@ -1,10 +1,11 @@
-package kazmierczak.jan.config.converter;
+package kazmierczak.jan.domain.config.converter;
 
 import kazmierczak.jan.car.Car;
 import kazmierczak.jan.car.CarBody;
 import kazmierczak.jan.car.Engine;
 import kazmierczak.jan.car.Wheel;
-import kazmierczak.jan.extension.CarsListJsonConverterExtension;
+import kazmierczak.jan.config.converter.CarsListJsonConverter;
+import kazmierczak.jan.domain.extension.CarsListJsonConverterExtension;
 import kazmierczak.jan.types.CarBodyColor;
 import kazmierczak.jan.types.CarBodyType;
 import kazmierczak.jan.types.EngineType;
@@ -17,8 +18,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @ExtendWith(CarsListJsonConverterExtension.class)
 @RequiredArgsConstructor

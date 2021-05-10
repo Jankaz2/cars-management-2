@@ -1,6 +1,7 @@
-package kazmierczak.jan.car.validator;
+package kazmierczak.jan.domain.car.validator;
 
-import kazmierczak.jan.car.*;
+import kazmierczak.jan.car.Car;
+import kazmierczak.jan.car.CarValidator;
 import kazmierczak.jan.car.validator.generic.Validator;
 import kazmierczak.jan.exception.ValidatorException;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarValidatorTest {
     @Test

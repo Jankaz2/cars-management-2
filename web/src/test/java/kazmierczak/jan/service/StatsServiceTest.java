@@ -1,5 +1,6 @@
-package kazmierczak.jan;
+package kazmierczak.jan.service;
 
+import kazmierczak.jan.CarsService;
 import kazmierczak.jan.config.AppSpringConfig;
 import kazmierczak.jan.exception.CarsServiceException;
 import kazmierczak.jan.types.CarStatistics;

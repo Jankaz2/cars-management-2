@@ -1,10 +1,12 @@
-package kazmierczak.jan.car;
+package kazmierczak.jan.domain.car;
 
+import kazmierczak.jan.car.Car;
+import kazmierczak.jan.car.Engine;
 import kazmierczak.jan.types.EngineType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class EqualsEngineTypeTest {
     @Test

@@ -1,4 +1,4 @@
-package kazmierczak.jan.extension;
+package kazmierczak.jan.domain.extension;
 
 import kazmierczak.jan.config.converter.CarsListJsonConverter;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -14,7 +14,7 @@ public class CarsListJsonConverterExtension implements ParameterResolver {
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        var filename = "C:\\Users\\Hp\\OneDrive\\kmprograms\\Java\\projects\\cars-managament-2\\domain\\src\\main\\resources\\files\\test\\cars-test.json";
+        var filename = "test/cars.json";
         return new CarsListJsonConverter(filename);
     }
 }

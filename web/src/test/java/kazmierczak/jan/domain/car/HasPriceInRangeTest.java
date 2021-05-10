@@ -1,11 +1,12 @@
-package kazmierczak.jan.car;
+package kazmierczak.jan.domain.car;
 
+import kazmierczak.jan.car.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class HasPriceInRangeTest {
     @Test

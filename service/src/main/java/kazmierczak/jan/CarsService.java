@@ -1,7 +1,6 @@
 package kazmierczak.jan;
 
 import kazmierczak.jan.car.Car;
-import kazmierczak.jan.car.CarUtils;
 import kazmierczak.jan.car.CarValidator;
 import kazmierczak.jan.config.converter.CarsListJsonConverter;
 import kazmierczak.jan.exception.CarsServiceException;
@@ -14,8 +13,14 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.Map.Entry;
+
+import static java.util.Collections.*;
+import static java.util.Comparator.*;
+import static java.util.function.Function.*;
+import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.joining;
+import static kazmierczak.jan.car.CarUtils.*;
 
 @Service
 public class CarsService {
@@ -25,12 +30,30 @@ public class CarsService {
 
     @PostConstruct
     public void init() {
-        cars = new CarsListJsonConverter(filename)
+        cars = new CarsListJsonConverter("/" + jarPath() + "/resources/" + filename)
                 .fromJson()
                 .orElseThrow(() -> new CarsServiceException("Cannot read data from file " + filename))
                 .stream()
                 .peek(car -> Validator.validate(new CarValidator(), car))
-                .collect(Collectors.toList());
+                .collect(toList());
+    }
+
+    /**
+     * @return jar path
+     */
+    public String jarPath() {
+        try {
+            var path = this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            var pathElements = path.split("/");
+            var size = pathElements.length;
+            return Arrays
+                    .stream(pathElements)
+                    .limit(size - 1)
+                    .skip(1)
+                    .collect(joining("/"));
+        } catch (Exception e) {
+            throw new CarsServiceException(e.getMessage());
+        }
     }
 
     /**
@@ -53,13 +76,13 @@ public class CarsService {
         }
 
         var sortedCars = switch (item) {
-            case COMPONENTS -> cars.stream().sorted(CarUtils.compareByComponentsSize).collect(Collectors.toList());
-            case ENGINEPOWER -> cars.stream().sorted(CarUtils.compareByEnginePower).collect(Collectors.toList());
-            default -> cars.stream().sorted(CarUtils.compareByWheelSize).collect(Collectors.toList());
+            case COMPONENTS -> cars.stream().sorted(compareByComponentsSize).collect(toList());
+            case ENGINEPOWER -> cars.stream().sorted(compareByEnginePower).collect(toList());
+            default -> cars.stream().sorted(compareByWheelSize).collect(toList());
         };
 
         if (descending) {
-            Collections.reverse(sortedCars);
+            reverse(sortedCars);
         }
         return sortedCars;
     }
@@ -91,7 +114,7 @@ public class CarsService {
         return cars
                 .stream()
                 .filter(car -> car.equalsCarBodyType(bodyType) && car.hasPriceInRange(fromPrice, toPrice))
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     /**
@@ -105,8 +128,8 @@ public class CarsService {
         return cars
                 .stream()
                 .filter(car -> car.equalsEngineType(engineType))
-                .sorted(CarUtils.compareByModel)
-                .collect(Collectors.toList());
+                .sorted(compareByModel)
+                .collect(toList());
     }
 
     /**
@@ -119,9 +142,9 @@ public class CarsService {
             throw new CarsServiceException("StatsItem argument is null");
         }
 
-        var priceStats = cars.stream().collect(Collectors2.summarizingBigDecimal(CarUtils.toStatsPrice));
-        var mileageStats = cars.stream().collect(Collectors.summarizingInt(CarUtils.toMileage));
-        var enginePowerStats = cars.stream().collect(Collectors2.summarizingBigDecimal(CarUtils.toStatsEnginePower));
+        var priceStats = cars.stream().collect(Collectors2.summarizingBigDecimal(toStatsPrice));
+        var mileageStats = cars.stream().collect(summarizingInt(toMileage));
+        var enginePowerStats = cars.stream().collect(Collectors2.summarizingBigDecimal(toStatsEnginePower));
 
         return switch (statsItem) {
             case PRICE -> CarStatistics.builder().priceStatistics(Statistics.fromBigDecimalSummaryStatistics(priceStats)).build();
@@ -137,10 +160,10 @@ public class CarsService {
     public Map<Car, Integer> cilometersPassedByCar() {
         return cars
                 .stream()
-                .collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.collectingAndThen(
-                                Collectors.mapping(CarUtils.toMileage::applyAsInt, Collectors.toList()),
+                .collect(groupingBy(
+                        identity(),
+                        collectingAndThen(
+                                mapping(toMileage::applyAsInt, toList()),
                                 mileages -> mileages.stream().findFirst().orElseThrow()
                         )
                 ));
@@ -154,14 +177,14 @@ public class CarsService {
     public Map<TyreType, List<Car>> carsGroupedByTyreType() {
         return cars
                 .stream()
-                .collect(Collectors.groupingBy(
-                        CarUtils.toWheelType
+                .collect(groupingBy(
+                        toWheelType
                 ))
                 .entrySet()
                 .stream()
-                .sorted(Comparator.comparing(e -> e.getValue().size()))
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey, Map.Entry::getValue,
+                .sorted(comparing(e -> e.getValue().size()))
+                .collect(toMap(
+                        Entry::getKey, Entry::getValue,
                         (v1, v2) -> v1, LinkedHashMap::new)
                 );
     }
@@ -178,7 +201,7 @@ public class CarsService {
         return cars
                 .stream()
                 .filter(car -> car.equalsComponents(components))
-                .sorted(Comparator.comparing(CarUtils.toModel))
-                .collect(Collectors.toList());
+                .sorted(comparing(toModel))
+                .collect(toList());
     }
 }

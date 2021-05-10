@@ -5,24 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kazmierczak.jan</groupId>
-    <artifactId>cars-menagament-2</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
+    <artifactId>cars-management-2</artifactId>
+    <version>${revision}</version>
     <modules>
         <module>domain</module>
         <module>service</module>
-        <module>ui</module>
         <module>security</module>
         <module>web</module>
     </modules>
+    <packaging>pom</packaging>
 
     <properties>
         <revision>1.0</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>15</java.version>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
-        <lombok.version>1.18.16</lombok.version>
+        <java.version>16</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <lombok.version>1.18.20</lombok.version>
         <junit.version>4.12</junit.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
@@ -132,7 +131,7 @@
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <compilerArgs>
-                            <compileArg>--enable-preview</compileArg>
+                            <compilerArg>--enable-preview</compilerArg>
                         </compilerArgs>
                     </configuration>
                 </plugin>
@@ -143,7 +142,7 @@
                     <version>${maven.enforcer.plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>enforce-env-requirement</id>
+                            <id>enforce-env-requirements</id>
                             <goals>
                                 <goal>enforce</goal>
                             </goals>
@@ -193,7 +192,7 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>com.app.web.App</mainClass>
+                                <mainClass>kazmierczak.jan.App</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>
@@ -219,14 +218,16 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>15</source>
-                    <target>15</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>--enable-preview</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-                <version>1.1.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

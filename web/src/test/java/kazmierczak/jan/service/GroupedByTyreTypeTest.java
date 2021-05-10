@@ -1,5 +1,6 @@
-package kazmierczak.jan;
+package kazmierczak.jan.service;
 
+import kazmierczak.jan.CarsService;
 import kazmierczak.jan.car.CarUtils;
 import kazmierczak.jan.config.AppSpringConfig;
 import kazmierczak.jan.types.TyreType;

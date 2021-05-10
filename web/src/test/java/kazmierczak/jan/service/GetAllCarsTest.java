@@ -1,5 +1,6 @@
-package kazmierczak.jan;
+package kazmierczak.jan.service;
 
+import kazmierczak.jan.CarsService;
 import kazmierczak.jan.car.CarUtils;
 import kazmierczak.jan.config.AppSpringConfig;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetAllCarsTest {
     private CarsService carsService;
